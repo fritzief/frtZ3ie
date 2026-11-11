@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fritzie Faura · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pinyon+Script&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="img/favicon.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- Canvas -->
+<canvas id="dots" aria-hidden="true"></canvas>
+
+<!-- Menu -->
+<button id="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+<!-- Drawer -->
+<aside class="drawer" id="drawer" aria-label="Site menu">
+  <img class="drawer-avatar" src="img/me.jpg" alt="" />
+  <nav>
+    <a href="#home"><img src="img/home.png" alt="Home"><h3>Home</h3></a>
+    <a href="#about"><img src="img/user.png" alt="About"><h3>About</h3></a>
+    <a href="#projects"><img src="img/layers.png" alt="Projects"><h3>Projects</h3></a>
+    <a href="#skills"><img src="img/skill-alt.png" alt="Skills"><h3>Skills</h3></a>
+    <a href="#education"><img src="img/student.png" alt="Education"><h3>Education</h3></a>
+    <a href="#contact"><img src="img/phone-guide.png" alt="Contact"><h3>Contact</h3></a>
+  </nav>
+  <div class="drawer-tools">
+    <button id="theme-btn" class="drawer-tool">Dark mode</button>
+    <button id="color-btn" class="drawer-tool" aria-expanded="false" aria-controls="colorpop">Color wheel</button>
+    <div class="colorpop" id="colorpop" hidden>
+      <div class="wheel-wrap"><canvas width="260" height="260"></canvas><div class="wheel-dot"></div></div>
+      <div class="swatches" id="swatches"></div>
+      <button type="button" id="color-reset" class="drawer-tool">Reset colors</button>
+    </div>
+    <button id="tour-btn" class="drawer-tool">✦ Website tour</button>
+  </div>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<main>
+  <!-- Hero -->
+  <section class="home" id="home">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+      <symbol id="bl" viewBox="-50 -50 100 100"><g style="fill:var(--petal);stroke:var(--rose);stroke-width:1.2">
+        <ellipse cx="0" cy="-24" rx="14" ry="24"/><ellipse cx="0" cy="-24" rx="14" ry="24" transform="rotate(72)"/><ellipse cx="0" cy="-24" rx="14" ry="24" transform="rotate(144)"/><ellipse cx="0" cy="-24" rx="14" ry="24" transform="rotate(216)"/><ellipse cx="0" cy="-24" rx="14" ry="24" transform="rotate(288)"/></g>
+        <circle r="6" style="fill:#d9a25f"/></symbol>
+      <symbol id="lf" viewBox="0 0 40 80"><path d="M20 0C40 25 38 60 20 80C2 60 0 25 20 0Z M20 8V74" style="fill:var(--deep);stroke:var(--rose);stroke-width:.8"/></symbol>
+      <symbol id="sp" viewBox="-10 -10 20 20"><path d="M0-10C1 -3 3 -1 10 0C3 1 1 3 0 10C-1 3 -3 1 -10 0C-3 -1 -1 -3 0 -10Z" style="fill:var(--accent)"/></symbol>
+      <symbol id="nt" viewBox="0 0 20 40"><ellipse cx="6" cy="33" rx="6" ry="4.5" transform="rotate(-20 6 33)" style="fill:var(--rose)"/><path d="M11 32V4C14 10 21 12 18 23" style="fill:none;stroke:var(--rose);stroke-width:1.6"/></symbol>
+    </defs></svg>
+
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="vinyl-deco" aria-hidden="true"></div>
+
+    <svg class="deco d-tl" viewBox="0 0 400 300" aria-hidden="true"><path d="M0 0H400C300 40 180 110 150 300C90 220 40 200 0 215Z" style="fill:var(--deep)"/><path d="M400 0C310 36 190 104 156 300" style="fill:none;stroke:var(--rose);stroke-width:1.5"/></svg>
+
+    <svg class="deco d-bl" viewBox="0 0 300 360" aria-hidden="true">
+      <path d="M10 360C60 260 120 200 230 150" style="fill:none;stroke:var(--deep);stroke-width:3"/>
+      <g transform="rotate(-25 90 300)"><use href="#lf" x="70" y="240" width="40" height="80"/></g>
+      <g transform="rotate(40 150 250)"><use href="#lf" x="130" y="190" width="36" height="72"/></g>
+      <g transform="rotate(-60 40 200)"><use href="#lf" x="20" y="150" width="34" height="68"/></g>
+      <use href="#bl" x="10" y="150" width="120" height="120"/>
+      <use href="#bl" x="110" y="230" width="90" height="90"/>
+      <use href="#bl" x="150" y="90" width="80" height="80"/>
+    </svg>
+
+    <svg class="deco d-br" viewBox="0 0 420 320" aria-hidden="true">
+      <path d="M420 60C300 80 230 170 170 320H420Z" style="fill:var(--deep)"/>
+      <path d="M420 40C290 66 214 160 150 320" style="fill:none;stroke:var(--rose);stroke-width:1.5"/>
+      <use href="#bl" x="120" y="210" width="110" height="110"/>
+      <use href="#bl" x="300" y="230" width="100" height="100"/>
+      <g style="fill:var(--accent);stroke:var(--rose);stroke-width:1.2">
+        <path d="M250 150C200 90 140 100 120 140C110 178 165 205 250 150Z"/><path d="M250 150C300 90 360 100 380 140C390 178 335 205 250 150Z"/>
+        <path d="M242 160L190 252L226 236L240 272L264 182Z"/><path d="M262 160L322 246L284 236L276 278L252 182Z"/>
+        <ellipse cx="251" cy="152" rx="22" ry="18"/></g>
+    </svg>
+
+    <svg class="deco d-staff" viewBox="0 0 700 260" aria-hidden="true">
+      <g style="fill:none;stroke:var(--rose);stroke-width:1" opacity=".8">
+        <path id="st" d="M0 230C150 230 250 190 350 120S560 20 700 20"/>
+        <use href="#st" y="7"/><use href="#st" y="14"/><use href="#st" y="21"/><use href="#st" y="28"/></g>
+      <use href="#nt" x="150" y="150" width="28" height="56"/><use href="#nt" x="250" y="118" width="28" height="56"/>
+      <use href="#nt" x="420" y="22" width="28" height="56"/><use href="#nt" x="540" y="-10" width="28" height="56"/>
+    </svg>
+
+    <svg class="spark s1" aria-hidden="true"><use href="#sp"/></svg><svg class="spark s2" aria-hidden="true"><use href="#sp"/></svg>
+    <svg class="spark s3" aria-hidden="true"><use href="#sp"/></svg><svg class="spark s4" aria-hidden="true"><use href="#sp"/></svg>
+    <p class="sig" aria-hidden="true">Fritzie</p>
+
+    <div class="hero-inner">
+      <figure class="portrait"><img src="img/me.jpg" alt="Portrait of Fritzie Faura" /></figure>
+      <p class="hello" aria-label="Hello, I’m Fritzie Faura."><span aria-hidden="true">Hello, I’m <b class="typed-name"></b><i class="cursor"></i></span></p>
+      <h1>Developer and designer building <em>clean, secure</em> websites.</h1>
+      <p class="meta">Web Developer · Bayawan City, Negros Oriental, Philippines</p>
+      <div class="actions">
+        <a href="#projects" class="btn">View projects →</a>
+        <a href="#contact" class="btn btn-ghost">Contact me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <p class="mono num">01 About</p>
+    <h2>A little more about me</h2>
+    <div class="prose">
+      <p style="text-align: justify;">I’m Fritzie Abuyabor Faura, a 3rd-year Information Technology student based in Bayawan, Negros Oriental. As I continue my studies, I spend my time on coding/programming, building websites, designing interfaces, and exploring how to solve technical problems.</p>
+      <p style="text-align: justify;">When approaching a project, I start by understanding the core problem. I aim to keep my code reusable and my designs focused on what people actually need.</p>
+      <p style="text-align: justify;"><strong>My goal is simple: to build useful, dependable projects as a student while learning something new with every line of code I write.</strong></p>
+    </div>
+    <dl class="facts">
+      <div><dt>Location</dt><dd>Bayawan City, Negros Oriental, Philippines</dd></div>
+      <div><dt>Studying</dt><dd>Bachelor of Science in Information Technology</dd></div>
+      <div><dt>Current focus</dt><dd>Web Development | FrontEnd & BackEnd · UI/UX · Security</dd></div>
+      <div><dt>Email</dt><dd>fritzieabuyabor@gmail.com</dd></div>
+    </dl>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <p class="mono num">02 Projects</p>
+    <h2>Things I’ve built</h2>
+
+    <!-- Filters -->
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="website">Websites</button>
+      <button data-f="webapp">Web apps</button>
+    </div>
+
+    <!-- Websites -->
+    <article class="card" data-cat="website"><div class="shot"><img src="img/fts.png" alt="Fritzie's Tech Services website" /></div><div class="card-body">
+      <div class="row-between"><span class="mono">Website</span><span class="mono">2026</span></div>
+      <h3>Fritzie's Tech Services</h3><p>A multi-section business website for web development, graphic design, cybersecurity and tech support services.</p>
+      <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+      <a class="link" href="https://fritzief.github.io/WebDev/" target="_blank" rel="noopener">Live site ↗</a></div></article>
+
+    <!-- Web apps -->
+    <article class="card" data-cat="webapp"><div class="shot"><img src="img/golden.png" alt="Golden Years Incentive Tracker"></div><div class="card-body">
+      <div class="row-between"><span class="mono">Web app</span><span class="mono">2026</span></div>
+      <h3>Golden Years Incentive Tracker</h3><p>A secure web application for LGU senior citizen management.</p>
+      <ul class="tags"><li>PHP</li><li>PDO</li><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>JavaScript</li><li>SQL</li><li>MySQL</li></ul>
+      <a class="link" href="#">Read more ↗</a></div></article>
+
+    <article class="card" data-cat="webapp"><div class="shot"><img src="img/schotrak.png" alt="Scholarship Tracking System"></div><div class="card-body">
+      <div class="row-between"><span class="mono">Web app</span><span class="mono">2025</span></div>
+      <h3>Scholar Track</h3><p>An efficient digital scholarship platform designed to empower students.</p>
+      <ul class="tags"><li>PHP</li><li>PDO</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li><li>MySQL</li></ul>
+      <a class="link" href="#">View work ↗</a></div></article>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <p class="mono num">03 Skills</p>
+    <h2>Skills and tools</h2>
+    <div class="groups">
+      <div class="group"><h3>FrontEnd</h3><p>Responsive interfaces that feel right.</p><ul class="tags"><li>HTML &amp; CSS</li><li>JavaScript</li><li>Responsive design</li></ul></div>
+      <div class="group"><h3>BackEnd</h3><p>Server logic, APIs, and databases.</p><ul class="tags"><li>PHP</li><li>Python</li><li>Java</li><li>MySQL</li></ul></div>
+      <div class="group"><h3>Programming languages</h3><p>Computer programming and coding.</p><ul class="tags"><li>C++</li><li>JavaScript</li><li>SQL</li></ul></div>
+      <div class="group"><h3>Design</h3><p>Interfaces and visual identity.</p><ul class="tags"><li>UI/UX</li><li>Graphic design</li><li>Adobe Animate</li><li>Adobe Illustrator</li><li>Canva</li><li>Branding</li></ul></div>
+      <div class="group"><h3>Version Control</h3><p>Tracking code changes and collaboration.</p><ul class="tags"><li>Git</li><li>GitHub</li></ul></div>
+      <div class="group"><h3>Robotics</h3><p>Hardware automation and physical computing.</p><ul class="tags"><li>Arduino Uno</li></ul></div>
+      <div class="group"><h3>IT Support</h3><p>System maintenance and technical support.</p><ul class="tags"><li>Hardware troubleshooting</li><li>Software installation</li><li>OS configuration</li></ul></div>
+      <div class="group"><h3>Networking</h3><p>Network infrastructure and protocols.</p><ul class="tags"><li>TCP/IP, DNS, HTTP/HTTPS, Cisco Network Configuration</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <p class="mono num">04 Education</p>
+    <h2>Education & School</h2>
+    <ol class="timeline">
+      <li><span class="mono">2024 – present</span><h3>Bachelor of Science in Information Technology</h3><p>Negros Oriental State University, Bayawan Sta. Catalina Campus.</p></li>
+    </ol>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <p class="mono num">05 Say hello</p>
+    <h2>Leave a message</h2>
+
+    <!-- Form -->
+    <form id="contactform" class="contact-form"
+          action="https://formsubmit.co/fritzieabuyabor@gmail.com"
+          method="POST" accept-charset="UTF-8">
+      <div id="form-alert" class="form-alert" role="alert" aria-live="polite" hidden></div>
+      <div class="form-row">
+        <input id="name" name="name" type="text" placeholder="Name" aria-label="Name" autocomplete="name" required />
+        <input id="email" name="email" type="email" placeholder="Email" aria-label="Email" autocomplete="email" required />
+      </div>
+      <input id="subject" name="subject" type="text" placeholder="Subject" aria-label="Subject" required />
+      <textarea id="message" name="message" rows="5" placeholder="Message" aria-label="Message" required></textarea>
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button class="btn" type="submit">Submit message</button>
+    </form>
+
+    <!-- Info -->
+    <div class="contact-infos">
+      <div class="contact-item">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+        <p>Villareal, Bayawan City<br>Negros Oriental, Philippines</p>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <p><a href="mailto:fritzieabuyabor@gmail.com">fritzieabuyabor@gmail.com</a></p>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+        <p><a href="https://web.facebook.com/fritz.ab.f03" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></span>
+        <p><a href="https://www.instagram.com/frtzi3__/" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=9.3658,122.8032&output=embed" title="Map of Bayawan City" loading="lazy" allowfullscreen></iframe>
+    </div>
+
+    <!-- Links -->
+    <ul class="links">
+      <li><a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener">GitHub <span>↗</span></a></li>
+      <li><a href="https://web.facebook.com/fritz.ab.f03" target="_blank" rel="noopener">Facebook <span>↗</span></a></li>
+      <li><a href="https://www.instagram.com/frtzi3__/" target="_blank" rel="noopener">Instagram <span>↗</span></a></li>
+    </ul>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">Developed by Fritzie Abuyabor Faura · 2026</footer>
+
+<!-- Player -->
+<div class="player" id="player">
+  <div class="mini">
+    <div class="vinyl" id="vinyl-mini"></div>
+    <div class="mini-text"><strong id="mini-title">From The Start</strong><span id="mini-artist">Laufey</span></div>
+    <button class="play" id="mini-play" aria-label="Play or pause">▶</button>
+    <button class="expand" id="expand" aria-label="Open player" aria-expanded="false">⌃</button>
+  </div>
+  <div class="panel" id="panel">
+    <div class="now"><div class="vinyl big" id="vinyl"></div>
+      <div><h3 id="title">–</h3><p id="artist">–</p></div></div>
+    <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+    <div class="times mono"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button id="shuffle" aria-label="Shuffle">⇄</button>
+      <button id="prev" aria-label="Previous">⏮</button>
+      <button class="play big" id="play" aria-label="Play or pause">▶</button>
+      <button id="next" aria-label="Next">⏭</button>
+      <button id="repeat" class="on" aria-label="Repeat all">↻</button>
+    </div>
+    <label class="vol">Volume <input type="range" id="vol" min="0" max="1" step="0.01" value="0.7" /></label>
+    <p class="note" id="note"></p>
+    <p class="mono">Playlist</p>
+    <ol class="tracks" id="tracks"></ol>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
