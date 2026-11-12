@@ -156,12 +156,12 @@ section.home{
 
 /* Vinyl */
 .vinyl-deco{
-  position:absolute;z-index:1;left:18vw;top:-15.5vw;width:31vw;aspect-ratio:1;border-radius:50%;
+  position:absolute;z-index:2;left:17vw;top:1.5rem;width:clamp(9rem,17vw,20rem);aspect-ratio:1;border-radius:50%;
   background:
     conic-gradient(from 0deg,transparent 0 6%,rgba(255,255,255,.16) 11%,transparent 17% 50%,rgba(255,255,255,.1) 60%,transparent 67%),
     radial-gradient(circle,#8e1427 0 13%,#f0d6cb 13.5% 15.5%,transparent 16%),
     repeating-radial-gradient(circle,#3b0a14 0 2px,#531220 3px 4px);
-  box-shadow:0 14px 40px rgba(60,10,20,.35);animation:spin 18s linear infinite;
+  box-shadow:0 14px 40px rgba(60,10,20,.35);animation:spin 10s linear infinite;
 }
 .vinyl-deco::after{content:"";position:absolute;left:48.5%;top:48.5%;width:3%;aspect-ratio:1;border-radius:50%;background:#f0d6cb}
 
@@ -169,7 +169,7 @@ section.home{
 .spark{position:absolute;z-index:2;width:2rem;height:2rem}
 .spark use{width:100%;height:100%}
 .s1{top:9svh;left:54%;width:2.8rem;height:2.8rem}
-.s2{top:30svh;left:20%;width:2.6rem;height:2.6rem}
+.s2{top:36svh;left:9%;width:2.6rem;height:2.6rem}
 .s3{top:49svh;right:7%;width:3.2rem;height:3.2rem}
 .s4{top:73svh;right:17%;width:2.6rem;height:2.6rem}
 
@@ -245,7 +245,7 @@ section.home{
 .contact-form .btn{justify-self:center;margin-top:.5rem}
 .form-alert{padding:.8rem 1rem;border-radius:.8rem;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
 .contact-infos{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);margin-bottom:2.5rem}
-.contact-item{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.4rem;text-align:center}
+.contact-item{text-align:center;padding:.5rem 0}
 .contact-icon{display:grid;place-items:center;width:3rem;height:3rem;margin:0 auto .8rem;border-radius:50%;background:var(--accent);color:var(--on);font-size:1.2rem}
 .contact-icon svg{display:block}
 .contact-item p{color:var(--muted);font-size:.95rem}
@@ -298,13 +298,16 @@ section.home{
 
   /* Hero: keep only the essentials so it is not crowded */
   section.home{display:flex;align-items:center}
-  .d-staff,.spark,.sig{display:none}
-  .vinyl-deco{left:50%;margin-left:-5rem;top:-3rem;width:10rem;z-index:2;box-shadow:0 8px 22px rgba(60,10,20,.3)}
-  .d-tl{width:24vw}
+  .spark{display:none}
+  .s2{display:block;top:32svh;left:6%;width:1.8rem;height:1.8rem}
+  .sig{left:auto;right:4.8rem;transform:none;top:1.4rem;font-size:clamp(2.4rem,11vw,3.2rem)}
+  .d-staff{display:block;top:4.2rem;right:0;width:46vw;opacity:.6}
+  .vinyl-deco{left:1rem;top:.9rem;width:5rem;box-shadow:0 6px 16px rgba(60,10,20,.3)}
+  .d-tl{display:none}
   .d-bl{--w:24vw}
   .d-br{--w:38vw}
-  .hero-inner{padding:7.5rem 1.25rem 6rem}
-  .portrait{width:min(13rem,52vw)}
+  .hero-inner{padding:8.25rem 1.25rem 6rem}
+  .portrait{width:min(11.5rem,50vw)}
   .portrait::before{inset:-4% -18%}
   .hello{margin-top:1.5rem;font-size:clamp(1.15rem,5.2vw,1.5rem);white-space:nowrap}
   .hello::after{margin-top:.5rem}
@@ -325,7 +328,7 @@ section.home{
   .tags{gap:.4rem;margin:.75rem 0}
   .tags li{font-size:.8rem;padding:.15rem .65rem}
   .timeline h3{font-size:1.25rem}
-  .contact-item{padding:1.1rem}
+  .contact-item{padding:.4rem 0}
   .map-wrap iframe{height:240px}
   .form-row,.contact-infos{grid-template-columns:1fr}
 
