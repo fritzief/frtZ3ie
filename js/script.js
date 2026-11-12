@@ -201,6 +201,17 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   });
 
   load(0);
+
+  // Autoplay: try as soon as the page opens. Browsers usually block sound until the
+  // visitor touches the page, so if it is blocked, start on the first tap / click / key press.
+  const wake = ['pointerup', 'touchend', 'keydown'];
+  const kick = e => {
+    if (!audio.paused) return;
+    if (e && e.target && root.contains(e.target)) return; // let the player's own buttons work normally
+    play();
+  };
+  audio.addEventListener('play', () => wake.forEach(ev => document.removeEventListener(ev, kick)));
+  audio.play().catch(() => wake.forEach(ev => document.addEventListener(ev, kick, { passive: true })));
 })();
 
 /* Contact */
