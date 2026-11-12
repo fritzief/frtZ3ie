@@ -192,6 +192,14 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     e.currentTarget.setAttribute('aria-expanded', open);
   });
 
+  // Tap anywhere outside the player to close the playlist (handy on phones)
+  document.addEventListener('click', e => {
+    if (root.classList.contains('open') && !root.contains(e.target)) {
+      root.classList.remove('open');
+      el('expand').setAttribute('aria-expanded', 'false');
+    }
+  });
+
   load(0);
 })();
 
