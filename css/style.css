@@ -298,11 +298,12 @@ section.home{
 
   /* Hero: keep only the essentials so it is not crowded */
   section.home{display:flex;align-items:center}
-  .vinyl-deco,.d-staff,.spark,.sig{display:none}
-  .d-tl{width:30vw}
+  .d-staff,.spark,.sig{display:none}
+  .vinyl-deco{left:50%;margin-left:-5rem;top:-3rem;width:10rem;z-index:2;box-shadow:0 8px 22px rgba(60,10,20,.3)}
+  .d-tl{width:24vw}
   .d-bl{--w:24vw}
   .d-br{--w:38vw}
-  .hero-inner{padding:6.5rem 1.25rem 6rem}
+  .hero-inner{padding:7.5rem 1.25rem 6rem}
   .portrait{width:min(13rem,52vw)}
   .portrait::before{inset:-4% -18%}
   .hello{margin-top:1.5rem;font-size:clamp(1.15rem,5.2vw,1.5rem);white-space:nowrap}
@@ -339,15 +340,29 @@ section.home{
   .drawer-tools{margin-top:auto;gap:.5rem}
   .drawer-tool{padding:.5rem;font-size:.95rem}
 
-  /* Music player: small pill, full width only when opened */
-  .player{right:.75rem;bottom:.75rem;width:min(17rem,calc(100vw - 1.5rem));border-radius:2rem}
-  .player.open{width:calc(100vw - 1.5rem)}
+  /* Music player: small pill; opens into a compact playlist sheet */
+  .player{right:.75rem;bottom:max(.75rem,env(safe-area-inset-bottom));width:min(17rem,calc(100vw - 1.5rem));border-radius:2rem}
+  .player.open{width:calc(100vw - 1.5rem);border-radius:1.5rem}
   .mini{gap:.65rem;padding:.5rem .7rem}
   .vinyl{width:2.6rem;height:2.6rem}
+  .vinyl.big{width:4rem;height:4rem}
   .play{width:2.6rem;height:2.6rem;font-size:.9rem}
+  .play.big{width:3.2rem;height:3.2rem;font-size:1.1rem}
   .mini-text strong{font-size:.95rem}
   .mini-text span{font-size:.8rem}
-  .panel{max-height:55vh;max-height:55svh}
+  .expand{display:grid;place-items:center;width:2.4rem;height:2.4rem;font-size:1.1rem}
+  .panel{padding:0 1rem 1rem;max-height:50vh;max-height:50svh;overscroll-behavior:contain}
+  .now{margin:.25rem 0 .75rem;gap:.85rem}
+  .now h3{font-size:1.2rem}
+  .now p{font-size:.9rem}
+  input[type=range]{height:1.5rem}
+  .controls{margin:.25rem 0 .75rem}
+  .controls button:not(.play){min-width:2.5rem;min-height:2.5rem;font-size:1.15rem}
+  .vol{margin-bottom:.5rem}
+  .tracks li{padding:.65rem .75rem;border-bottom:1px solid var(--line);border-radius:0}
+  .tracks li:last-child{border-bottom:0}
+  .tracks li span{font-weight:500}
+  .tracks small{font-size:.8rem}
 }
 
 @media (max-width:380px){
