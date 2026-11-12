@@ -78,7 +78,11 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     }));
   };
   resize();
-  addEventListener('resize', resize);
+  // Phones change innerHeight while scrolling (address bar), so only rebuild when the width changes.
+  let lastW = innerWidth;
+  addEventListener('resize', () => {
+    if (innerWidth !== lastW) { lastW = innerWidth; resize(); }
+  });
   (function draw() {
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--rose') || '#c9967f';
@@ -431,18 +435,18 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const q = s => document.querySelector(s);
 
     const steps = [
-      { el: '.portrait',             t: 'Welcome!',     d: 'Hi, I’m Fritzie. This quick tour shows you around my portfolio.' },
-      { el: '#menu-btn',             t: 'Menu button',  d: 'Tap this button to open the menu.' },
-      { el: '.drawer nav',           t: 'Quick links',  d: 'Jump to any section of the site from here.', drawer: true },
-      { el: '#colorpop',             t: 'Color wheel',  d: 'Drag on the wheel or tap a swatch to recolor the whole site.', drawer: true, color: true },
-      { el: '#theme-btn',            t: 'Dark mode',    d: 'Switch between light and dark mode.', drawer: true },
-      { el: '#about .prose',         t: 'About me',     d: 'A short intro about who I am and what I’m studying.' },
-      { el: '#projects .filters',    t: 'Projects',     d: 'Filter my work by Web apps, Design, or Security.' },
-      { el: '#skills .groups',       t: 'Skills',       d: 'The languages, design tools, and security skills I work with.' },
-      { el: '#experience .timeline', t: 'Experience',   d: 'My education and the tech services business I run.' },
-      { el: '#contact .contact-form',t: 'Contact',      d: 'Send me a message here. It goes straight to my email.' },
-      { el: '#player',               t: 'Music player', d: 'Press play, or tap the arrow to open the full playlist.' },
-      { el: '#menu-btn',             t: 'That’s it!',   d: 'Open the menu and press “Website tour” any time to replay this.' }
+      { el: '.portrait',              t: 'Welcome!',     d: 'Hi, I’m Fritzie. This quick tour shows you around my portfolio.' },
+      { el: '#menu-btn',              t: 'Menu button',  d: 'Tap this button to open the menu.' },
+      { el: '.drawer nav',            t: 'Quick links',  d: 'Jump to any section of the site from here.', drawer: true },
+      { el: '#colorpop',              t: 'Color wheel',  d: 'Drag on the wheel or tap a swatch to recolor the whole site.', drawer: true, color: true },
+      { el: '#theme-btn',             t: 'Dark mode',    d: 'Switch between light and dark mode.', drawer: true },
+      { el: '#about .prose',          t: 'About me',     d: 'A short intro about who I am and what I’m studying.' },
+      { el: '#projects .filters',     t: 'Projects',     d: 'Filter my work by Websites or Web apps.' },
+      { el: '#skills .groups',        t: 'Skills',       d: 'The languages, design tools, and IT skills I work with.' },
+      { el: '#education .timeline',   t: 'Education',    d: 'Where I’m studying Information Technology.' },
+      { el: '#contact .contact-form', t: 'Contact',      d: 'Send me a message here. It goes straight to my email.' },
+      { el: '#player',                t: 'Music player', d: 'Press play, or tap the arrow to open the full playlist.' },
+      { el: '#menu-btn',              t: 'That’s it!',   d: 'Open the menu and press “Website tour” any time to replay this.' }
     ];
 
     let i = -1, spot = null, card = null, raf;
